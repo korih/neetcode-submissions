@@ -1,0 +1,11 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        word_hash = [0] * 26
+
+        for c in s:
+            word_hash[ord(c) - ord('a')] += 1
+        
+        for c in t:
+            word_hash[ord(c) - ord('a')] -= 1
+        
+        return all(x == 0 for x in word_hash)
